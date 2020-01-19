@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>ID: </th>
+        <td>{{ card.id }}</td>
+    </tr>
+    <tr>
+        <th>Серия карты: </th>
+        <td>{{ card.series }}</td>
+    </tr>
+    <tr>
+        <th>Номер карты: </th>
+        <td>{{ card.number }}</td>
+    </tr>
+    <tr>
+        <th>Дата выпуска карты: </th>
+        <td>{{ card.release_date }}</td>
+    </tr>
+    <tr>
+        <th>Дата окончания активности карты: </th>
+        <td>{{ card.end_date }}</td>
+    </tr>
+    <tr>
+        <th>Дата использования: </th>
+        <td>
+        {% if card.use_date %}
+            {{ card.use_date }}
+        {% else %}
+            -
+        {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>Сумма: </th>
+        <td>{{ card.card_amount }}</td>
+    </tr>
+    <tr>
+        <th>Статус карты: </th>
+        <td>{{ card.get_status_display }}</td>
+    </tr>
+</table>
+{% endblock %}
